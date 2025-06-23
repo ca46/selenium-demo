@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Failed suite [ParallelTesting_Test]" guice-stage="DEVELOPMENT">
+  <parameter name="browser" value="chrome"/>
+  <listeners>
+    <listener class-name="generateReport.Listeners"/>
+  </listeners>
+  <test thread-count="5" parallel="tests" name="ChromeTest(failed)">
+    <classes>
+      <class name="testscripts.ManageNewsTest">
+        <methods>
+          <include name="browserInitialisation"/>
+          <include name="verifyUserIsAbleToEnterTheNews"/>
+          <include name="driverQuit"/>
+        </methods>
+      </class> <!-- testscripts.ManageNewsTest -->
+    </classes>
+  </test> <!-- ChromeTest(failed) -->
+  <test thread-count="5" parallel="tests" name="EdgeTest(failed)">
+    <classes>
+      <class name="testscripts.AdminUserTest">
+        <methods>
+          <include name="browserInitialisation"/>
+          <include name="driverQuit"/>
+          <include name="verifyAbleToCreateNewAdminUser"/>
+        </methods>
+      </class> <!-- testscripts.AdminUserTest -->
+    </classes>
+  </test> <!-- EdgeTest(failed) -->
+</suite> <!-- Failed suite [ParallelTesting_Test] -->
